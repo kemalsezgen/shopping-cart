@@ -28,6 +28,19 @@
   color: #61dafb;
 }
 
+.book {
+  display: flex;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  border: 1px solid #ccc;
+  transition: all 0.5s;
+}
+
+.book img {
+  width: 130px;
+  margin: 0 10px 0 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
