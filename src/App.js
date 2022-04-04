@@ -22,8 +22,29 @@ function App() {
     : [...state.cart, {...book, count: 1 }]
   })
 
+  const increaseBook = (id) => {
+    setState({
+      ...state, 
+      cart: state.cart.map(cartItem => cartItem.id === id ? {...cartItem, count: cartItem.count + 1} : cartItem) 
+    })
+  }
+
+  const decreaseBook = (id) => {
+    setState({
+      ...state, 
+      cart: state.cart.map(cartItem => cartItem.id === id ? {...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1} : cartItem) 
+    })
+  }
+
+  const removeFromCart = (id) => {
+    setState({
+      ...state,
+      cart: state.cart.filter(cartItem => cartItem.id !== id)
+    })
+  }
+
   return (
-    <BookContext.Provider value={{ state, addToCart}}>
+    <BookContext.Provider value={{ state, addToCart, increaseBook, decreaseBook, removeFromCart}}>
       <Router>
         <div className="App">
           <h2>Buy a book.</h2>
